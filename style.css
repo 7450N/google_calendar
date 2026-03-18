@@ -1,0 +1,318 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --rose: #e8567f;
+  --rose-light: #f9d1dc;
+  --rose-deep: #c43a60;
+  --blush: #fff0f3;
+  --cream: #fffaf5;
+  --gold: #e8a87c;
+  --text: #4a2040;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Quicksand", sans-serif;
+  background: var(--cream);
+  overflow: hidden;
+  position: relative;
+  color: var(--text);
+}
+
+/* ── Floating hearts background ── */
+.hearts-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.heart-float {
+  position: absolute;
+  font-size: 1.4rem;
+  opacity: 0;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) rotate(0deg) scale(0.6);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(-10vh) rotate(360deg) scale(1);
+    opacity: 0;
+  }
+}
+
+/* ── Card ── */
+.card {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+  border-radius: 28px;
+  padding: 56px 48px 48px;
+  max-width: 480px;
+  width: 90vw;
+  text-align: center;
+  box-shadow:
+    0 4px 30px rgba(200, 60, 100, 0.12),
+    0 1px 3px rgba(200, 60, 100, 0.08);
+  border: 1px solid var(--rose-light);
+  animation: cardIn 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.envelope {
+  font-size: 3.4rem;
+  margin-bottom: 12px;
+  display: inline-block;
+  animation: envelopeBounce 2s ease-in-out infinite;
+}
+
+@keyframes envelopeBounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(3deg);
+  }
+}
+
+.card h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--rose-deep);
+  line-height: 1.3;
+  margin-bottom: 8px;
+}
+
+.card h1 i {
+  font-style: italic;
+  color: var(--rose);
+}
+
+.subtitle {
+  font-size: 0.95rem;
+  color: #b07a90;
+  margin-bottom: 36px;
+  letter-spacing: 0.02em;
+}
+
+.sparkle-divider {
+  margin: 18px auto 28px;
+  font-size: 0.85rem;
+  letter-spacing: 6px;
+  color: var(--gold);
+}
+
+/* ── Buttons ── */
+.buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  min-height: 70px;
+  position: relative;
+}
+
+.btn {
+  padding: 14px 44px;
+  border-radius: 50px;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  letter-spacing: 0.03em;
+}
+
+.btn-yes {
+  background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(232, 86, 127, 0.35);
+}
+
+.btn-yes:hover {
+  transform: scale(1.08);
+  box-shadow: 0 6px 28px rgba(232, 86, 127, 0.5);
+}
+
+.btn-yes:active {
+  transform: scale(1.02);
+}
+
+.btn-no {
+  background: #fff;
+  color: var(--rose);
+  border: 2px solid var(--rose-light);
+  position: relative;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.btn-no:hover {
+  background: var(--blush);
+}
+
+/* ── Yes screen ── */
+.yes-screen {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  animation: popIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes popIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.yes-screen .big-heart {
+  font-size: 5rem;
+  animation: heartbeat 1s ease-in-out infinite;
+}
+
+@keyframes heartbeat {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.15);
+  }
+  30% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.1);
+  }
+}
+
+.yes-screen h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  color: var(--rose-deep);
+  margin: 16px 0 8px;
+}
+
+.yes-screen p {
+  color: #b07a90;
+  font-size: 0.95rem;
+}
+
+/* ── Picker screen ── */
+.picker-screen {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  animation: popIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.picker-fields {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+  width: 100%;
+  justify-content: center;
+}
+
+.picker-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--rose-deep);
+  gap: 6px;
+  flex: 1;
+  max-width: 180px;
+}
+
+.picker-input {
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 2px solid var(--rose-light);
+  font-family: "Quicksand", sans-serif;
+  font-size: 0.95rem;
+  color: var(--text);
+  background: var(--blush);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.picker-input:focus {
+  border-color: var(--rose);
+}
+
+.status-msg {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: var(--rose-deep);
+  min-height: 24px;
+}
+
+.status-msg.error {
+  color: #d9534f;
+}
+
+/* ── Done screen ── */
+.done-screen {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  animation: popIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* ── Confetti canvas ── */
+#confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ── Mobile ── */
+@media (max-width: 500px) {
+  .card {
+    padding: 40px 28px 36px;
+  }
+  .card h1 {
+    font-size: 1.55rem;
+  }
+  .btn {
+    padding: 12px 32px;
+    font-size: 0.95rem;
+  }
+}

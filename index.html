@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I Have a Question For You... 💕</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- floating hearts -->
+  <div class="hearts-bg" id="heartsBg"></div>
+
+  <!-- confetti -->
+  <canvas id="confetti"></canvas>
+
+  <div class="card">
+    <!-- question view -->
+    <div class="question-view" id="questionView">
+      <div class="envelope">💌</div>
+      <h1>Will you go on<br />a <i>date</i> with me?</h1>
+      <div class="sparkle-divider">✦ ✦ ✦</div>
+      <p class="subtitle">
+        Pick wisely... though there's really only one right answer 😉
+      </p>
+      <div class="buttons">
+        <button class="btn btn-yes" id="btnYes">Yes! 💕</button>
+        <button class="btn btn-no" id="btnNo">No</button>
+      </div>
+    </div>
+
+    <!-- yes view → transitions to date picker -->
+    <div class="yes-screen" id="yesScreen">
+      <div class="big-heart">💗</div>
+      <h2>Yay! It's a date!</h2>
+      <p>I can't stop smiling right now 🥰</p>
+      <p class="subtitle" style="margin-top: 20px">Now let's pick when...</p>
+      <button class="btn btn-yes" id="btnPickDate" style="margin-top: 12px">
+        Pick a Date & Time 📅
+      </button>
+    </div>
+
+    <!-- date/time picker view -->
+    <div class="picker-screen" id="pickerScreen">
+      <div class="envelope">📅</div>
+      <h2>When works for you?</h2>
+      <p class="subtitle">Pick a date and time for our date!</p>
+
+      <div class="picker-fields">
+        <label class="picker-label">
+          Date
+          <input type="date" id="dateInput" class="picker-input" />
+        </label>
+        <label class="picker-label">
+          Time
+          <input type="time" id="timeInput" class="picker-input" />
+        </label>
+      </div>
+
+      <button class="btn btn-yes" id="btnConfirm" style="margin-top: 24px">
+        Confirm & Send Invite 💌
+      </button>
+
+      <div class="status-msg" id="statusMsg"></div>
+    </div>
+
+    <!-- final confirmation view -->
+    <div class="done-screen" id="doneScreen">
+      <div class="big-heart">💌</div>
+      <h2>Invite Sent!</h2>
+      <p>Check your email for the calendar invite 🥰</p>
+      <p class="subtitle" style="margin-top: 8px">See you soon! 💕</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
