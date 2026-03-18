@@ -116,7 +116,7 @@ btnYes.addEventListener("click", () => {
 // ────────────────────────────────────────
 // CONFIG — UPDATE THESE
 // ────────────────────────────────────────
-const WORKER_URL = "https://your-worker.your-subdomain.workers.dev/send";
+const WORKER_URL = "https://google-calendar-invite.jason-invite.workers.dev";
 // ↑ Replace with your deployed Cloudflare Worker URL
 
 // ────────────────────────────────────────
